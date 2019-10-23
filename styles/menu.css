@@ -1,0 +1,109 @@
+.menu-wrapper {
+    display: flex;
+    position: relative;
+    vertical-align: baseline;
+    word-wrap: break-word;
+    background-color: #363636;
+}
+
+.menu {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-direction-column {
+    flex-direction: column;
+}
+
+.menu-direction-row {
+    flex-direction: row;
+}
+
+.menu .item {
+    padding: 1rem;
+}
+
+.menu .item,
+.menu .item .link {
+    text-decoration: none;
+}
+
+.menu .sub-menu, .menu .mega-sub-menu {
+    box-sizing: border-box;
+    display: none;
+    position: absolute;
+    list-style-type: none;
+    top: 100%;
+    padding: 0;
+    white-space: nowrap;
+    background-color: #FFF;
+    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+}
+
+.menu .mega-sub-menu {
+    left: 0;
+    width: 100%;
+}
+
+.menu .sub-menu .item {
+    position: relative;
+    padding: 0.5rem 1rem;
+}
+
+.menu .sub-menu .sub-menu {
+    position: absolute;
+    min-width: 100%;
+    overflow: visible;
+    top: 0;
+    left: 0;
+    z-index: 99;
+}
+
+.menu .item:hover > .sub-menu,
+.menu .item:hover > .mega-sub-menu {
+    display: flex;
+}
+
+.menu .sub-menu .left {
+    right: 100% !important;
+    left: auto;
+}
+
+.menu .sub-menu .right {
+    left: 100% !important;
+    right: auto;
+}
+
+.menu .sub-menu .bottom {
+    top: 100%;
+    bottom: auto;
+}
+
+.menu .sub-menu .top {
+    bottom: 0;
+    top: auto;
+}
+
+.sub-menu-column {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    border-right: solid 1px #000;
+    height: 100%;
+}
+
+.sub-menu-column .active {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.sub-menu-section {
+    white-space: normal;
+}
+
+.sub-menu-section {
+    white-space: normal;
+}
