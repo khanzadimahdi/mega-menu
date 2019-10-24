@@ -9,8 +9,19 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    </head>
     <body>
         <div class="menu-wrapper">
+            <ul class="mini-menu">
+                <li class="logo">
+                    <img src="https://www.megamenu.com/wp-content/uploads/2016/08/white-s.png" alt="Max Mega Menu Logo">
+                </li>
+                <li>
+                    <button class="toggle-btn" type="button">
+                        <span class="animated-lines"></span>
+                    </button>
+                </li>
+            </ul>
+
             <ul class="menu">
-                <li class="item">
+                <li class="item logo">
                     <a href="https://www.megamenu.com/">
                         <img src="https://www.megamenu.com/wp-content/uploads/2016/08/white-icon-s-25x28.png" alt="Max Mega Menu Logo White" srcset="https://www.megamenu.com/wp-content/uploads/2016/08/white-icon-s-50x56.png 2x" width="25" height="28">
                     </a>
@@ -18,7 +29,9 @@
                 <li class="item">
                     <a class="link" href="">Item1</a>
                     <ul class="sub-menu menu-direction-row">
-                        <li class="item">sub item1</li>
+                        <li class="item">
+                            <a class="link" href="">item2</a>
+                        </li>
                         <li class="item">sub item2
                             <ul class="sub-menu menu-direction-column bottom">
                                 <li class="item">sub menu item1</li>

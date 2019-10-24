@@ -1,109 +1,253 @@
 .menu-wrapper {
     display: flex;
+    flex-direction: column;
     position: relative;
     vertical-align: baseline;
     word-wrap: break-word;
     background-color: #363636;
 }
 
-.menu {
+.mini-menu {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
     list-style-type: none;
+}
+
+.mini-menu.active + .menu {
+    display: block;
+}
+
+.toggle-btn {
+    border: none;
+    background: none;
+    width: 40px;
+    height: 30px;
+    display: inline-block;
+    position: relative;
+    box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
-.menu-direction-column {
-    flex-direction: column;
+.animated-lines,
+.animated-lines:before,
+.animated-lines:after {
+    box-sizing: border-box;
+    width: 100%;
+    height: 4px;
+    display: block;
+    background-color: #fff;
+    border-radius: 4px;
+    position: absolute;
+    transition-property: all;
+    transition-duration: 0.15s;
+    transition-timing-function: ease;
 }
 
-.menu-direction-row {
-    flex-direction: row;
+.animated-lines:before {
+    content: "";
+    top: 10px;
+}
+
+.animated-lines:after {
+    content: "";
+    top: -10px;
+}
+
+.toggle-btn.active .animated-lines {
+    background: none;
+}
+
+.toggle-btn.active .animated-lines:before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.toggle-btn.active .animated-lines:after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.menu .logo img,
+.mini-menu .logo img {
+    max-width: 150px;
+}
+
+.menu {
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 100%;
+    background-color: #3D3D3D;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .menu .item {
-    padding: 1rem;
+    display: list-item;
+    list-style-type: none;
 }
 
-.menu .item,
+.menu .item.active {
+    background-color: #f2f2f2;
+}
+
 .menu .item .link {
+    padding: 1rem;
+    display: block;
     text-decoration: none;
 }
 
-.menu .sub-menu, .menu .mega-sub-menu {
-    box-sizing: border-box;
-    display: none;
-    position: absolute;
-    list-style-type: none;
-    top: 100%;
-    padding: 0;
-    white-space: nowrap;
-    background-color: #FFF;
-    box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+.menu > .item > .link {
+    color: #FFF;
 }
 
+.menu .item:nth-child(odd) {
+    padding-top: 0;
+}
+
+.menu > .item.active {
+    background-color: #2b2b2b;
+}
+
+.menu .sub-menu,
 .menu .mega-sub-menu {
-    left: 0;
-    width: 100%;
-}
-
-.menu .sub-menu .item {
-    position: relative;
-    padding: 0.5rem 1rem;
-}
-
-.menu .sub-menu .sub-menu {
-    position: absolute;
-    min-width: 100%;
-    overflow: visible;
-    top: 0;
-    left: 0;
-    z-index: 99;
-}
-
-.menu .item:hover > .sub-menu,
-.menu .item:hover > .mega-sub-menu {
-    display: flex;
-}
-
-.menu .sub-menu .left {
-    right: 100% !important;
-    left: auto;
-}
-
-.menu .sub-menu .right {
-    left: 100% !important;
-    right: auto;
-}
-
-.menu .sub-menu .bottom {
-    top: 100%;
-    bottom: auto;
-}
-
-.menu .sub-menu .top {
-    bottom: 0;
-    top: auto;
-}
-
-.sub-menu-column {
-    display: flex;
-    flex-direction: column;
+    background-color: #FFF;
     padding: 0;
     margin: 0;
-    list-style-type: none;
-    border-right: solid 1px #000;
-    height: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
-.sub-menu-column .active {
-    background-color: rgba(0, 0, 0, 0.1);
+.menu .item.active > .sub-menu,
+.menu .item.active > .mega-sub-menu {
+    height: auto;
 }
 
-.sub-menu-section {
-    white-space: normal;
+.menu .logo {
+    display: none;
 }
+/*
+@media all and (min-width: 871px) {
+    .menu-wrapper {
+        flex-direction: column;
+    }
 
-.sub-menu-section {
-    white-space: normal;
+    .mini-menu {
+        display: none;
+    }
+
+    .menu {
+        display: flex;
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        position: static;
+    }
+
+    .menu .logo {
+        display: flex;
+    }
+
+    .menu-direction-column {
+        flex-direction: column;
+    }
+
+    .menu-direction-row {
+        flex-direction: row;
+    }
+
+    .menu .item {
+        padding: 1rem;
+    }
+
+    .menu .item,
+    .menu .item .link {
+        text-decoration: none;
+    }
+
+    .menu .sub-menu, .menu .mega-sub-menu {
+        box-sizing: border-box;
+        display: none;
+        position: absolute;
+        list-style-type: none;
+        top: 100%;
+        padding: 0;
+        white-space: nowrap;
+        background-color: #FFF;
+        box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+    }
+
+    .menu .mega-sub-menu {
+        left: 0;
+        width: 100%;
+    }
+
+    .menu .sub-menu .item {
+        position: relative;
+        padding: 0.5rem 1rem;
+    }
+
+    .menu .sub-menu .sub-menu {
+        position: absolute;
+        min-width: 100%;
+        overflow: visible;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+
+    .menu .item:hover > .sub-menu,
+    .menu .item:hover > .mega-sub-menu {
+        display: flex;
+    }
+
+    .menu .sub-menu .left {
+        right: 100% !important;
+        left: auto;
+    }
+
+    .menu .sub-menu .right {
+        left: 100% !important;
+        right: auto;
+    }
+
+    .menu .sub-menu .bottom {
+        top: 100%;
+        bottom: auto;
+    }
+
+    .menu .sub-menu .top {
+        bottom: 0;
+        top: auto;
+    }
+
+    .sub-menu-column {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+        border-right: solid 1px #000;
+        height: 100%;
+    }
+
+    .sub-menu-column .active {
+        background-color: rgba(0, 0, 0, 0.1);
+    }
+
+    .sub-menu-section {
+        white-space: normal;
+    }
+
+    .sub-menu-section {
+        white-space: normal;
+    }
 }

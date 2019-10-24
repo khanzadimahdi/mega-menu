@@ -32,6 +32,26 @@ menu.prototype.hideSections = function() {
 menu.prototype.addEventHandlers = function() {
     let $this = this;
 
+    document.querySelector('.mini-menu').addEventListener('click',
+        function() {
+            this.classList.toggle('active');
+            document.querySelector('.toggle-btn').classList.toggle('active');
+        });
+
+    document.querySelector('.toggle-btn').addEventListener('click',
+        function() {
+            this.classList.toggle('active');
+        }
+    );
+
+    document.querySelectorAll('.item>.sub-menu, .item>.sub-menu').forEach(function(item) {
+        item.parentElement.addEventListener('click', function(event) {
+            event.preventDefault();
+            event.stopPropagation();
+            this.classList.toggle('active');
+        });
+    });
+
     $this
         .getItems()
         .forEach(function(item, index) {
