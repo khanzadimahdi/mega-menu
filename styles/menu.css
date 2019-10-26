@@ -134,7 +134,8 @@
 .menu .logo {
     display: none;
 }
-/*
+
+
 @media all and (min-width: 871px) {
     .menu-wrapper {
         flex-direction: column;
@@ -146,8 +147,9 @@
 
     .menu {
         display: flex;
+        align-items: baseline;
         list-style-type: none;
-        padding: 0;
+        padding: 0 0.5rem;
         margin: 0;
         position: static;
     }
@@ -165,8 +167,13 @@
     }
 
     .menu .item {
-        padding: 1rem;
+        padding: 1rem !important;
+        height: 100%;
     }
+
+    .menu .item .link {
+        padding: 0;
+    }    
 
     .menu .item,
     .menu .item .link {
@@ -183,6 +190,7 @@
         white-space: nowrap;
         background-color: #FFF;
         box-shadow: 0 0 5px 0 rgba(0,0,0,0.1);
+        height: auto !important;
     }
 
     .menu .mega-sub-menu {
@@ -206,7 +214,7 @@
 
     .menu .item:hover > .sub-menu,
     .menu .item:hover > .mega-sub-menu {
-        display: flex;
+        display: flex !important;
     }
 
     .menu .sub-menu .left {
