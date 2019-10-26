@@ -146,7 +146,7 @@
     }
 
     .menu {
-        display: flex;
+        display: flex !important;
         align-items: baseline;
         list-style-type: none;
         padding: 0 0.5rem;
@@ -173,7 +173,7 @@
 
     .menu .item .link {
         padding: 0;
-    }    
+    }
 
     .menu .item,
     .menu .item .link {
